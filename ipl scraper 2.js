@@ -16,7 +16,8 @@ function cb(error,response,html){
 }
 function allMatchUrl(html){
     let mainPage=cheerio.load(html);
-    let allMatchPage=mainPage(".widget-items.cta-link a").attr("href");
+     let anchorElem = mainPage("a[data-hover='View All Results']");
+    let allMatchPage=anchorElem.attr("href");
   // for(let k=0;k<allMatchPage.length;k++){ 
     let allIplUrl="https://www.espncricinfo.com"+allMatchPage;
     // console.log(allIplUrl);
